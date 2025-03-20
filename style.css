@@ -27,12 +27,24 @@ body {
 
 .window {
     background: #fff;
-    border: 2px solid #000000;
-    box-shadow: 2px 2x 0 rgba(0, 0, 0, 0.5);
     width: 90%;
     max-width: 600px;
     margin: 20px auto;
     overflow: hidden;
+}
+
+
+.window {
+    border: 2px solid #000000;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+.window-content {
+    padding: 18px;
+    background: #ffffff;
+    
+    
 }
 
 .window-header {
@@ -43,6 +55,7 @@ body {
     justify-content: space-between;
     align-items: center;
     cursor: move;
+    
 }
 
 .window-title {
@@ -58,10 +71,7 @@ body {
     padding: 0 5px;
 }
 
-.window-content {
-    padding: 20px;
-    background: #fff;
-}
+
 
 .folder-grid {
     display: grid;
@@ -81,7 +91,7 @@ body {
 }
 
 .folder:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(159, 155, 155, 0.1);
     transform: translateY(-2px);
 }
 
@@ -111,13 +121,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    border: 2px solid #000000;
-    box-shadow: 2px 2x 0 rgba(0, 0, 0, 0.5);
     width: 90%;
     max-width: 600px;
     max-height: 80vh;
     display: none;
     z-index: 100;
+
 }
 
 
@@ -132,6 +141,8 @@ body {
     transform: rotate(0deg);
 }
 
+
+
 #projects-window {
     width: 500px;
     height: 400px;
@@ -141,6 +152,7 @@ body {
     transform: translateX(-50%);
 }
 
+
 #about-window {
     width: 370px;
     height: 270px;
@@ -149,6 +161,8 @@ body {
     left: 15%;
 }
 
+
+
 #contact-window {
     width: 300px;
     height: 300px;
@@ -156,6 +170,7 @@ body {
     right: 20%
     
 }
+
 
 .section-window.active {
     display: block;
@@ -178,7 +193,6 @@ body {
 
 .project-card {
     border: 2px solid #000;
-    border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
     background: #fff;
@@ -344,8 +358,8 @@ body {
 .contact-link {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 15px;
+    gap: 30px;
+    padding: 10px 10px;
     border: 2px solid #000;
     border-radius: 5px;
     text-decoration: none;
@@ -357,7 +371,7 @@ body {
 .contact-link:hover {
     background-color: rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* CV Content */
@@ -390,6 +404,56 @@ body {
     position: absolute;
     left: -15px;
 }
+
+
+.download-cv-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    background: #fff;
+    width: fit-content;
+}
+
+.download-cv-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Ajustement pour les liens de contact */
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.3s ease;
+    background: #fff;
+    width: 100%;
+    word-break: break-word;
+}
+
+.contact-link svg {
+    flex-shrink: 0;
+}
+
+/* Ajustement de la fenêtre de contact */
+#contact-window .window-content {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 
 /* Music Player Styles */
 .music-player {
@@ -565,24 +629,4 @@ body {
 .music-player .visualizer .bar:nth-child(3) { animation-delay: 0.2s; }
 .music-player .visualizer .bar:nth-child(4) { animation-delay: 0.3s; }
 .music-player .visualizer .bar:nth-child(5) { animation-delay: 0.4s; }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .folder-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .section-window {
-        width: 95%;
-        max-height: 90vh;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-detail-content {
-        padding: 10px;
-    }
-}
 
