@@ -17,20 +17,21 @@
             <div class="window-content">
                 <div class="folder-grid">
                     <div class="folder" data-section="about">
-                        <img class="folder-icon" src="about.svg" alt="About">
-                        <span>About</span>
+                        <img class="folder-icon" src="image/about.svg" alt="About">
+                        </h1><span>About</span><h1></h1>
                     </div>
                     <div class="folder" data-section="projects">
-                        <img class="folder-icon" src="projects.svg" alt="Projects">
+                        <img class="folder-icon" src="image/projects.svg" alt="Projects">
                         <span>Projects</span>
                     </div>
                     <div class="folder" data-section="cv">
-                        <img class="folder-icon" src="cv.svg" alt="CV">
+                        <img class="folder-icon" src="image/cv.svg" alt="CV">
                         <span>CV</span>
                     </div>
                     <div class="folder" data-section="contact">
-                        <img class="folder-icon" src="contact.svg" alt="Contact">
+                        <img class="folder-icon" src="image/contact.svg" alt="Contact">
                         <span>Contact</span>
+                    </>
                     </div>
                 </div>
             </div>
@@ -52,8 +53,8 @@
                     <br>
                     <p>Bonjour,
                     <br>
-                        je m'appelle Thaïs L'Hocine, étudiante à
-                        l'école des Gobelins en DN MADE Design numérique
+                        Je m'appelle Thaïs L'Hocine, étudiante à
+                         Gobelins Paris en DN MADE Design numérique
                         spécialité code.
                         </p>
                         <p>Je suis à la recherche d'une
@@ -143,10 +144,11 @@
                     <button class="close-button">×</button>
                 </div>
                 <div class="window-content">
-                    <h2>Curriculum Vitae</h2>
+                    <h2>Qui suis-je ?</h2>
                     <div class="cv-content">
                         <h3>Formation</h3>
-                        <p>DN MADE Design - École des Gobelins</p>
+                        <p>DN MADE Design </p>
+                            Gobelins Paris </p>
 
                         <a href="/assets/cv-thais-lhocine.pdf" download class="download-cv-btn">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -154,7 +156,7 @@
                                 <polyline points="7 10 12 15 17 10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
                             </svg>
-                            Télécharger mon CV
+                            Mon CV.pdf
                         </a>
                     </div>
                 </div>
@@ -299,19 +301,21 @@
             </div>
         </div>
 
-        <!-- Search Windows Stack -->
-        <div class="search-window-stack">
+
+        
+        <div class="search-window-stack" id="job-popup" >
             <div class="search-window">
                 <div class="window-header">
                     <div class="window-title">http://www.job-search.com</div>
                     <button class="close-button">×</button>
                 </div>
                 <div class="content">
-                    <b>Chercher vous un alternant ? </b><br>
+                    <b> OUii</b><br>
                     
                 </div>
             </div>
-            <div class="search-window">
+            
+            <div class="search-window" id="job-popup" >
                 <div class="window-header">
                     <div class="window-title">http://www.job-search.com</div>
                     <button class="close-button">×</button>
@@ -321,6 +325,7 @@
                     
                 </div>
             </div>
+        
             <div class="search-window">
                 <div class="window-header">
                     <div class="window-title">http://www.job-search.com</div>
@@ -333,11 +338,36 @@
             </div>
         </div>
 
+
         <!-- Project Details Container -->
         <div id="project-details"></div>
     </div>
     <script src="projects.js"></script>
     <script src="main.js"></script>
 
+
+    <div class="desktop">
+        <video id="background-video" autoplay loop muted playsinline>
+            <source src="video/ma-video.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+        </div>
+    </div>
+    
+
+
+    <div id="popup" class="popup">
+        
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2>HEEEEEEEEE !</h2>
+            <p>ENGAGEZ MOIIIIII !</p>
+        </div>
+    </div>
+
+    
+    
 </body>
 </html>
+
+
