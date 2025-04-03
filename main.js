@@ -1,10 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Fermer toutes les fenêtres SAUF search au chargement
-    const allWindows = document.querySelectorAll('.section-window, .about-window, .projects-window, .cv-window, .contact-window');
-    allWindows.forEach(window => {
-        window.style.display = 'none';
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        let popup = document.getElementById("popup");
+        popup.style.display = "flex"; // Affiche le pop-up après le délai
+    }, Math.floor(Math.random() * (1000 - 10000) + 1000)); // Délai aléatoire entre 10 et 15 sec
 
+    // Fermer le pop-up en cliquant sur le bouton
+    document.querySelector(".close-btn").addEventListener("click", function () {
+        document.getElementById("popup").style.display = "none";
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+        let popup = document.getElementById("popup");
+        popup.style.display = "flex"; // Affiche le pop-up après le délai
+    }, Math.floor(Math.random() * (15000 - 10000) + 10000)); // Délai aléatoire entre 10 et 15 sec
+
+    // Fermer le pop-up en cliquant sur le bouton
+    document.querySelector(".close-btn").addEventListener("click", function () {
+        document.getElementById("popup").style.display = "none";
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+ 
+    
     // Masquer toutes les stacks SAUF search au chargement
     const allStacks = document.querySelectorAll('.about-window-stack, .project-window-stack, .cv-window-stack, .contact-window-stack');
     allStacks.forEach(stack => {
@@ -21,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const windows = document.querySelectorAll('.window, .section-window, .about-window, .projects-window, .cv-window, .contact-window, .search-window');
     windows.forEach(makeWindowDraggable);
 
+
+
+    
     // Configurer les clics sur les dossiers
     const folders = document.querySelectorAll('.folder');
     folders.forEach(folder => {
@@ -67,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     closeButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.stopPropagation();
-            const window = button.closest('.section-window, .about-window, .projects-window, .cv-window, .contact-window');
+            const window = button.closest('.section-window, .projects-window, .cv-window, .contact-window');
             if (window) {
                 const stack = window.closest('.about-window-stack, .project-window-stack, .cv-window-stack, .contact-window-stack');
                 if (stack) {
@@ -212,35 +237,8 @@ const projects = [
         description: "Un lecteur de musique interactif inspiré du design Mac, avec une interface élégante et des animations fluides. Ce projet combine esthétique rétro et fonctionnalités modernes.",
         image: "https://i.pinimg.com/736x/a6/f6/a5/a6f6a56d4ccbda600e2b1b8eb2375b63.jpg",
         type: "interactive",
-        playerContent: {
-            songs: [
-                {
-                    artist: 'FKA Twigs',
-                    song: 'Oh my love',
-                    image: 'https://cdn-images.dzcdn.net/images/cover/d68c5560e7e839491a10cfcb1a01925c/0x1900-000000-80-0-0.jpg'
-                },
-                {
-                    artist: 'Kali Uchis, SZA',
-                    song: 'Fue mejor',
-                    image: 'https://i.scdn.co/image/ab67616d00001e026a7b60cda376bb823002d80a'
-                },
-                {
-                    artist: 'Jhené Aiko',
-                    song: 'When we love',
-                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdK0bAqXQl1GNbAXdvDOHrULByxH0-P_Z03g&s'
-                },
-                {
-                    artist: 'Alicia Keys',
-                    song: 'Felling U, Feeling Me (interlude)',
-                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPaKiF4Z2CxVXp6EfxN4J4PGXQj2yQZEXaCA&s'
-                },
-                {
-                    artist: 'Erykah Badu',
-                    song: '...& On',
-                    image: 'https://i.scdn.co/image/ab67616d00001e020d934cb462fae5a26f829efb'
-                }
-            ]
-        }
+        
+        
     }
 ];
 
@@ -396,57 +394,5 @@ function hideProjectDetail(projectId) {
     }
 }
 
-function initializeMusicPlayer(projectId, songs) {
-    const detailPage = document.getElementById(`project-${projectId}`);
-    if (!detailPage) return;
 
-    const playButton = detailPage.querySelector('#play');
-    const prevButton = detailPage.querySelector('#prev');
-    const nextButton = detailPage.querySelector('#next');
-    const albumArt = detailPage.querySelector('#albumArt');
-    const artistElement = detailPage.querySelector('#artist');
-    const songElement = detailPage.querySelector('#song');
-    const playlist = detailPage.querySelectorAll('.playlist li');
-    
-    let currentSongIndex = 0;
-    let isPlaying = false;
 
-    function updateSong(index) {
-        playlist.forEach(item => item.classList.remove('active'));
-        playlist[index].classList.add('active');
-        albumArt.src = songs[index].image;
-        artistElement.textContent = songs[index].artist;
-        songElement.textContent = songs[index].song;
-        currentSongIndex = index;
-    }
-
-    playButton.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        playButton.textContent = isPlaying ? '⏸' : '▶';
-        
-        const bars = detailPage.querySelectorAll('.visualizer .bar');
-        bars.forEach(bar => {
-            bar.style.animationPlayState = isPlaying ? 'running' : 'paused';
-        });
-    });
-
-    prevButton.addEventListener('click', () => {
-        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-        updateSong(currentSongIndex);
-    });
-
-    nextButton.addEventListener('click', () => {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        updateSong(currentSongIndex);
-    });
-
-    playlist.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            updateSong(index);
-        });
-    });
-}
-
-// Make functions available globally
-window.showProjectDetail = showProjectDetail;
-window.hideProjectDetail = hideProjectDetail;
